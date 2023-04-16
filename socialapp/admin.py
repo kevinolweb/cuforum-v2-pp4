@@ -15,9 +15,10 @@ class TopicAdmin(SummernoteModelAdmin):
     list_filter = ('category', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('summary',)
+    actions=['make_trending']
     
     def make_trending(self, request, queryset):
-        queryset.update(trending=True)
+        queryset.update(topic_trending=True)
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):

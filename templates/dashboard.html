@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block content %}
+Welcome
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm-3">col-sm-4</div>
+        <div class="col-sm-6">
+        {% for topic in topic_activity %} 
+            <div>{{topic.title }}</div>
+        {% if empty %}
+        <p>No topics being discussed right now.</p>
+        {% endif %}
+        {% endfor %} 
+        </div>
+        <div class="col-sm-3">col-sm-4</div>
+    </div>
+
+{% endblock %}
