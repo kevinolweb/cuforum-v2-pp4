@@ -3,4 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('dashboard/',dashboard_view,name="dashboard"),
+    path('<slug:slug>/',topic_detail_view,name="topic_item"),
 ]

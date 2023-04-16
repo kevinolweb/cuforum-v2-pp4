@@ -44,8 +44,8 @@ class Topic(models.Model):
         return self.likes.count()
 
 class Comment(models.Model):
-    user = models.EmailField()
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    commenter = models.EmailField()
+    topic = models.ForeignKey(Topic, related_name="comments", on_delete=models.CASCADE)
     body = models.TextField()
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)

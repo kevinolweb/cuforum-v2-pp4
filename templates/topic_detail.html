@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <div><h2>{{item.title }}</h2></div> 
+            {% if item.summary %} 
+            {{item.summary|safe}}
+            {% endif %}
+            <h3>Comments</h3><hr>
+            {% if not item.comments.all %}
+            <p>No comments</p>
+            {% else %}
+                {% for message in item.comments.all %}
+                <div>
+                <i>{{message.commenter}}</i><br/>
+                {{message.body}}
+                </div><hr>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="col-sm-3">
+            <h3>Browse Categories</h3><hr>
+            {% for category in categories_preview %} 
+                <div>{{category.name }}</div><hr>
+            {% empty %}
+            <p>No categories listed.</p>
+            {% endfor %} 
+            </div>
+    </div>
+
+{% endblock %}

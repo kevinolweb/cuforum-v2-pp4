@@ -22,9 +22,9 @@ class TopicAdmin(SummernoteModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('user', 'body', 'topic', 'created',)
+    list_display = ('commenter', 'body', 'topic', 'created',)
     list_filter = ('topic', 'created')
-    search_fields = ('user', 'body')
+    search_fields = ('commenter', 'body')
 
 @admin.register(TopicCategory)
 class TopicCategoryAdmin(SummernoteModelAdmin):
