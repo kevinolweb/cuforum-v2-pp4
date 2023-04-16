@@ -23,7 +23,7 @@ class TopicCategory(models.Model):
         verbose_name_plural = "Topic Categories"
 
 class Topic(models.Model):
-    category=models.ForeignKey(TopicCategory,on_delete=models.CASCADE)
+    category=models.ForeignKey(TopicCategory,related_name="categories",on_delete=models.CASCADE)
     creator=models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.CharField(max_length=250,unique=True)
     summary=models.TextField(max_length=500,blank=True)
