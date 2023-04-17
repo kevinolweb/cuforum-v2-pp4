@@ -6,13 +6,13 @@ The CU Forum is an online communication for platform for credit union staff and 
 
 The tool is deployed here [https://cuforumv2.herokuapp.com/]
 
-## UX
+# UX
 
-### The Strategy Pane
+## The Strategy Plane
 * The site is aimed at credit union staff and volunteers which vary in age from 20 years old to 80 years old. The site as such needs to be easy to navigate for all to encourage engagement. These people are busy professionals and would like a simplified experience that allows them to connect with their peers in other credit unions
 
 
-### The Scope Pane
+## The Scope Plane
 * The site will require a login for people to engage and interact with the community
 * An authenticated user can create conversation topics for other members to see as well as leave comments on other peoples topics.
 * The site will require CRUD functionality
@@ -44,7 +44,7 @@ Development Plan
 I identified a lof of requirements which I wanted to implement for the project. At it core I needed the project to be a CRUD application which would allow users to create conversation topics and make comments. I placed this need as the main must have as well as facilitation login. There were extra features I also wanted if time would allow. These features included a very personalised experience with information tailored to your role in the credit union, editing, liking and deleting comments, managing your own personal profile and updating your preferences etc.
 
 
-## The Structure Pane
+## The Structure Plane
 
 ### Features
 ![Dashboard Preview](/additional/main-image-2.jpg)
@@ -66,49 +66,75 @@ This feature allows the admin to easily highlight their testimonials of credit u
 * Access all the latest activities/discussion topics from a convenient dashboard which you are brought to when you login.
 
 
-## The Skeleton Pane
+## The Skeleton Plane
 
-## Database Design
+### Database Design
 Before begining the project I used Excel to help me visualise the database layout and how the different keys would connect with each other. This helped me when in development as I already had the models ready to develop and knew how they connected making for faster deployment.
 
-## Wireframing
+### Wireframing
 I used Balsamiq to help me organise my thoughts on what I would develop and how the end outcome would look. I find the simplicity of the tool quite nifty for bring the project down to its basic component parts and prevent you becoming excessively bogged down on colours etc.
 
 Homepage Variants
-![Dashboard Preview](/additional/main-image-3-disctopic.jpg)
+![Home Preview](/additional/Homepage B.png)
+![Home Preview](/additional/Homepage.png)
 
+Discussion Page
+![Home Preview](/additional/Discussion Page.png)
 
-### Advanced Error Checking
-![Age error display](/assets/images/age-error-display.png)
-* The tool checks that the user cannot be under or over a certain age in order to submit their salary data. And that it is a number.
-![Salary error display](/assets/images/number-error.png)
-* The tool checks that the user inputted a number and the salary is between a certain reasonable range of €10,000 - €100,000.
+Create a Topic
+![Home Preview](/additional/Create a Dicussion.png)
 
-### Salary Information Collection Storage
-* The tool stores data inputted by the user such as name, age and salary in a Google Worksheet for future data interrogation.
+Login Page
+![Home Preview](/additional/Login Homepage.png)
+![Home Preview](/additional/Login.png)
 
-### Salary Comparison
-![Salary Comparison](/assets/images/comparison.png)
-* The tool takes your salary and checks it against the cumulative average salary across all industries stored in the Google Worksheet.
-* The tool tells you how much more/less you earn compared to the national average salary in the year previous.
+Register Page
+![Home Preview](/additional/Register.png)
 
+My Profile
+![Home Preview](/additional/My profile.png)
 
-### Display Salary Data from Worksheet
-![Display Industry Salaries](/assets/images/data-display.png)
-* The tool displays average salaries across all industries which is stored in a Google Spreadsheet
-* The user has the option of viewing this if they want by selecting 'y' or ending the survey by selecting 'n'.
+## The Surface Plane
 
-## Technology
-* The tool was developed using Python.
+### Design
+I went with a soft blue for the colour scheme to give the UX a user friendly look. I complimented it with a bright purple for the categories section so this finter woption would stand out and bring vibracy to the page.
+![Home Preview](/additional/main-image-color.jpg)
+
 
 ## Testing
-1. I have put the code for the app through the pep8 editor and no major errors were uncovered.
-2. Minor whitespacing issues and similar were discovered and will be addressed later as they do not affect code functionality.
+I tested all of the HTML, CSS and Python code to ensure all is working as it should prior to deployment. 
+I also put the application through a series of rigorous tests. 
+I manually checked through creating multiple users and accessing the site with different devices that:
+
+#### Unauthenticated users
+1. Non logged in users cannot create a topic
+2. Non logged in users cannot access the dashboard
+3. Non logged in users cannot delete a topic
+4. Non logged in users cannot contribute to the site other than through signing up as a member
+5. Non logged in users do not see links to the dashboard or to “create a topic” on the homepage page navigation
+
+#### Authenticated users
+1. Users who sign up cannot access the admin panel - they remain staff so can access the topic dashboard etc once the register for the site but not admin area
+2. Users who are signed in cannot delete topics that another user created
+3. Users who are signed in cannot edit another persons topic
+4. Users can delete their own topic
+5. Users can edit their own topic
+6. Users are able to successfully sign in and be redirected to the dashboard
+7. Users are able to logout and are taken to the logout page and back to the homepage once they have confirmed they are signing out
+
+
+## Technologies Used
+* HTML
+* CSS
+* Python
+* Django
+
 
 ## Deployment
-* The code was deployed through Heroku and can be viewed here[[https://irish-salary-survey.herokuapp.com/].
-* The Google Spreadsheet raw data is stored on a seperate private file.
+* The code was deployed through Heroku server and can be viewed here[https://cuforumv2.herokuapp.com/].
+* The database used is Elephant SQL
+* All media files are stored through Cloudinary
 
 ## Credits 
-* The Code Institute Love Sandwiches project was used to assist my learning of getting data from a spreadsheet and making calculations.
+* The Code Institute projects were used to assist my learning of Django and building applications requiring CRUD functionality.
 
