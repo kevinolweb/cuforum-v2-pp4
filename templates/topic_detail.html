@@ -4,14 +4,18 @@
 {% if user.is_authenticated %}
 <div class="container">
     <div class="row">
-        <div class="col-sm-9">
+        <div style="margin-top:30px;" class="col-sm-9">
+            <strong ><small>{{item.category }}</small></strong>
             <div><h2>{{item.title }}</h2></div> 
             {% if item.summary %} 
             {{item.summary|safe}}
             {% endif %}
             {% if request.user == item.creator %}
             <div>
-            <a href="{% url 'update-topic' item.slug %}">Edit</a>
+            <div style="margin:30px;">
+            <a href="{% url 'update-topic' item.slug %}">Edit</a><br>
+            <a href="{% url 'delete-topic' item.slug %}">Delete</a>
+            </div>
             </div>
             {% endif %}
             <h3>Comments</h3><hr>
@@ -33,9 +37,10 @@
             {% endif %}
         </div>
         <div class="col-sm-3">
-            <h3>Browse Categories</h3><hr>
+            <h2>Browse Categories</h2>
             {% for category in categories_preview %} 
-                <div>{{category.name }}</div><hr>
+                <div class="categorycont rounded shadow-sm">
+                    <a id="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a></div><hr>
             {% empty %}
             <p>No categories listed.</p>
             {% endfor %} 

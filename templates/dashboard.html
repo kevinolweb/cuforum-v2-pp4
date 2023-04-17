@@ -1,25 +1,32 @@
 {% extends 'base.html' %} 
 {% block content %}
-Welcome
-<div class="container text-center">
+
+<main class="container">
+<div class="container">
     <div class="row">
         <div class="col-sm-3">
+        <h2>Browse Categories</h2>
         {% for category in categories_preview %} 
-            <div><a href="{% url 'category-view' category.id %}">{{category.name }}</a></div><hr>
+            <div class="categorycont rounded shadow-sm">
+                <a id="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a></div><hr>
         {% if empty %}
         <p>No categories listed.</p>
         {% endif %}
         {% endfor %} 
         </div>
         <div class="col-sm-6">
+            <h2>Topics being discussed</h2>
         {% for topic in topic_activity %} 
-            <div><a href="{% url 'topic_item' topic.slug %}">{{topic.title }}</a></div>
+            <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <small class="mb-0"><i>Published: {{topic.created_on}}</i> by <strong>{{topic.creator}}</strong></small>
+            <h4><a href="{% url 'topic_item' topic.slug %}">{{topic.title }}</a></h4>
+            <small class="mb-0"><strong>{{topic.category}}</strong></small>
+            </div>
         {% if empty %}
         <p>No topics being discussed right now.</p>
         {% endif %}
         {% endfor %} 
         </div>
-        <div class="col-sm-3">col-sm-4</div>
-    </div>
-
+        </div></div>
+</main>
 {% endblock %}

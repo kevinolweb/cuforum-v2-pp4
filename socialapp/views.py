@@ -22,6 +22,7 @@ def dashboard_view(request):
     }
     return render(request,'dashboard.html',context)
 
+@login_required(login_url='/')
 def selected_category_view(request,pk):
     chosen_category=TopicCategory.objects.get(id=pk)
     category_topics=Topic.objects.filter(category=chosen_category)
@@ -31,6 +32,7 @@ def selected_category_view(request,pk):
     }
     return render(request,'category_detail.html',context)
 
+@login_required(login_url='/')
 def topic_detail_view(request,slug):
     item=Topic.objects.get(slug=slug)
     categories_preview=TopicCategory.objects.all()
@@ -50,6 +52,7 @@ def topic_detail_view(request,slug):
     }
     return render(request,'topic_detail.html',context)
 
+@login_required(login_url='/')
 def createTopic(request):
     if request.method=='POST':
         new_topic_form=TopicForm(request.POST)
@@ -80,3 +83,15 @@ def updateTopic(request,slug):
     }
     return render(request,'topic_update.html',context)
 
+@login_required(login_url='/')
+def deleteTopic(request,slug):
+    topic=Topic.objects.get(slug=slug)
+    if request.user != topic.creator:
+        return HttpResponse('Your are not allowed here!')
+    if request.method=='POST':
+        topic.delete()
+        return redirect('dashboard')
+    context={
+        'topic':topic,
+    }
+    return render(request,'topic_delete.html',context)

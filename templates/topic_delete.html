@@ -1,16 +1,15 @@
 {% extends 'base.html' %} 
 {% load crispy_forms_tags %}
-
 {% block content %}
 <div class="container">
-    <div style="margin-top:30px;" class="row">
-        <h2>Create a Discussion Topic</h2>
+    <div class="row">
         <div class="col-sm-12">
+            <h2>Delete Topic</h2>
+            <p>Are you sure?</p>
             <form method="POST">
                 {% csrf_token %}
-                {{new_topic_form | crispy}}
-                <button type="submit">Create Topic</button>
+                {{topic}}
+                <button type="submit">Delete</button>
             </form>
         </div>
-
 {% endblock %}
