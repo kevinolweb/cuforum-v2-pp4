@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .models import *
-from .forms import TopicForm
+from .forms import TopicForm,CommentForm
 # Create your views here.
 def dashboard_view(request):
     topic_activity=Topic.objects.all()
@@ -23,9 +23,19 @@ def selected_category_view(request,pk):
 def topic_detail_view(request,slug):
     item=Topic.objects.get(slug=slug)
     categories_preview=TopicCategory.objects.all()
+    if request.method=='POST':
+        new_comment=CommentForm(request.POST)
+        if new_comment.is_valid():
+            comm=new_comment.save(commit=False)
+            comm.topic=item
+            comm.commenter=request.user.username
+            comm.save()
+            return redirect('dashboard')
+    new_comment=CommentForm()
     context = {
         'item':item,
         'categories_preview':categories_preview,
+        'new_comment':new_comment,
     }
     return render(request,'topic_detail.html',context)
 

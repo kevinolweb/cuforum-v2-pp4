@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'socialapp',
     'allauth',
     'allauth.account',
@@ -54,8 +56,10 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'dashboard/'
+LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = '/'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
