@@ -47,7 +47,15 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'socialapp',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = 'dashboard/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
