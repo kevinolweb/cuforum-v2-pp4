@@ -12,6 +12,7 @@ def index(request):
     }
     return render(request,'index.html',context)
 
+@login_required(login_url='/')
 def dashboard_view(request):
     topic_activity=Topic.objects.all()
     categories_preview=TopicCategory.objects.all()
@@ -63,7 +64,7 @@ def createTopic(request):
     }
     return render(request,'topic_create.html',context)
 
-@login_required(login_url='login')
+@login_required(login_url='/')
 def updateTopic(request,slug):
     topic=Topic.objects.get(slug=slug)
     selected_topic=TopicForm(instance=topic)
