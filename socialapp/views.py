@@ -4,6 +4,14 @@ from .forms import TopicForm,CommentForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+def index(request):
+    credit_unions=CreditUnion.objects.all()
+    context = {
+        'credit_unions':credit_unions,
+    }
+    return render(request,'index.html',context)
+
 def dashboard_view(request):
     topic_activity=Topic.objects.all()
     categories_preview=TopicCategory.objects.all()
