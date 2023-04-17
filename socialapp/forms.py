@@ -6,7 +6,7 @@ class TopicForm(ModelForm):
     class Meta:
         model = Topic
         fields = '__all__'
-        exclude = ['creator']
+        exclude = ['creator','likes','topic_trending']
         
 class CommentForm(ModelForm):
     class Meta:

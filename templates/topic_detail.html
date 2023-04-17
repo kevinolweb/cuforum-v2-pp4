@@ -9,6 +9,11 @@
             {% if item.summary %} 
             {{item.summary|safe}}
             {% endif %}
+            {% if request.user == item.creator %}
+            <div>
+            <a href="{% url 'update-topic' item.slug %}">Edit</a>
+            </div>
+            {% endif %}
             <h3>Comments</h3><hr>
             <strong>Leave a comment</strong>
             <form method="POST">
