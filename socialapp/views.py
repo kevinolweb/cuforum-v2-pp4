@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from .models import *
 from .forms import TopicForm,CommentForm
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
 # Create your views here.
 
 def index(request):
@@ -60,6 +60,7 @@ def createTopic(request):
             obj=new_topic_form.save(commit=False)
             obj.creator=request.user
             obj.save()
+            messages.add_message(request, messages.SUCCESS, 'Your topic was successfully created!')
             return redirect('dashboard')
     new_topic_form=TopicForm()
     context={
