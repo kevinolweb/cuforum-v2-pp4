@@ -43,6 +43,7 @@ def topic_detail_view(request,slug):
             comm.topic=item
             comm.commenter=request.user.username
             comm.save()
+            messages.add_message(request, messages.SUCCESS,"Your comment was posted!")
             return redirect('dashboard')
     new_comment=CommentForm()
     context = {
@@ -78,6 +79,7 @@ def updateTopic(request,slug):
         selected_topic=TopicForm(request.POST,instance=topic)
         if selected_topic.is_valid():
             selected_topic.save()
+            messages.add_message(request, messages.SUCCESS, 'Your topic was successfully updated!')
             return redirect('dashboard')
     context={
         'selected_topic':selected_topic,
@@ -91,6 +93,7 @@ def deleteTopic(request,slug):
         return HttpResponse('Your are not allowed here!')
     if request.method=='POST':
         topic.delete()
+        messages.add_message(request, messages.INFO, 'Your topic was successfully deleted!')
         return redirect('dashboard')
     context={
         'topic':topic,
