@@ -13,8 +13,8 @@
             {% if request.user == item.creator %}
             <div>
             <div style="margin:30px;">
-            <a href="{% url 'update-topic' item.slug %}">Edit</a><br>
-            <a href="{% url 'delete-topic' item.slug %}">Delete</a>
+            <a class="btn btn-primary" href="{% url 'update-topic' item.slug %}">Edit</a></button><br>
+            <a class="btn btn-danger"href="{% url 'delete-topic' item.slug %}">Delete</a>
             </div>
             </div>
             {% endif %}
@@ -23,7 +23,7 @@
             <form method="POST">
                 {% csrf_token %}
                 {{new_comment | crispy}}
-                <button type="submit">Comment</button>
+                <button type="submit" class="btn btn-info">Comment</button>
             </form>
             {% if not item.comments.all %}
             <p>No comments</p>

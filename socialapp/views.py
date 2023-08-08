@@ -63,6 +63,9 @@ def createTopic(request):
             obj.save()
             messages.add_message(request, messages.SUCCESS, 'Your topic was successfully created!')
             return redirect('dashboard')
+        else:
+            messages.error(request, 'This topic could not be created. This slug may already be in use please create a new one or create a ticket if you have further issues.')
+
     new_topic_form=TopicForm()
     context={
         'new_topic_form':new_topic_form,
