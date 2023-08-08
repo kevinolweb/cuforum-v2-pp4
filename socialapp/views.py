@@ -45,6 +45,8 @@ def topic_detail_view(request,slug):
             comm.save()
             messages.add_message(request, messages.SUCCESS,"Your comment was posted!")
             return redirect('dashboard')
+        else:
+            messages.error(request, 'Oops! There was an error and your comment could not be posted!')
     new_comment=CommentForm()
     context = {
         'item':item,
@@ -84,6 +86,8 @@ def updateTopic(request,slug):
             selected_topic.save()
             messages.add_message(request, messages.SUCCESS, 'Your topic was successfully updated!')
             return redirect('dashboard')
+        else:
+            messages.error(request, 'Oops! Your topic could not be updated. Please ensure the slug is unique as it may already be in use. Please submit a ticket if further issues.')
     context={
         'selected_topic':selected_topic,
     }

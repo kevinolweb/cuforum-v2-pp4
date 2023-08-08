@@ -13,8 +13,8 @@
             {% if request.user == item.creator %}
             <div>
             <div style="margin:30px;">
-            <a class="btn btn-primary" href="{% url 'update-topic' item.slug %}">Edit</a></button><br>
-            <a class="btn btn-danger"href="{% url 'delete-topic' item.slug %}">Delete</a>
+            <a style="padding:20px;" class="btn btn-primary" href="{% url 'update-topic' item.slug %}">Edit</a>
+            <a style="padding:20px;" class="btn btn-danger"href="{% url 'delete-topic' item.slug %}">Delete</a>
             </div>
             </div>
             {% endif %}
