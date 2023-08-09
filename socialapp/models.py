@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-
+# Not createable for users
 class CreditUnion(models.Model):
     name = models.CharField(max_length=100, unique=True)
     logo = CloudinaryField('image', default='placeholder')
@@ -13,7 +13,7 @@ class CreditUnion(models.Model):
     def __str__(self):
         return self.name
 
-
+# Not creatable for users
 class TopicCategory(models.Model):
     name = models.CharField(max_length=200)
 
@@ -24,7 +24,7 @@ class TopicCategory(models.Model):
         ordering = ["name"]
         verbose_name_plural = "Topic Categories"
 
-
+# Users discussion topics
 class Topic(models.Model):
     category = models.ForeignKey(
         TopicCategory,
@@ -49,7 +49,7 @@ class Topic(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
-
+#Users comments on each topic
 class Comment(models.Model):
     commenter = models.EmailField()
     topic = models.ForeignKey(
