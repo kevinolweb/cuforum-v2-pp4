@@ -1,5 +1,5 @@
-from pathlib import Path
 import os
+from pathlib import Path
 import dj_database_url
 from django.contrib.messages import constants as messages
 development = os.environ.get('DEVELOPMENT', False)
@@ -23,8 +23,6 @@ if development:
     ALLOWED_HOSTS = ['localhost']
 else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
-
-
 #ALLOWED_HOSTS = ["cuforumv2.herokuapp.com", "localhost"]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
@@ -109,9 +107,8 @@ if development:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
