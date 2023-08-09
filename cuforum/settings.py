@@ -1,6 +1,6 @@
-import os
 from pathlib import Path
 import dj_database_url
+import os
 from django.contrib.messages import constants as messages
 development = os.environ.get('DEVELOPMENT', False)
 
@@ -15,15 +15,17 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY','')
 
 DEBUG = development
+
+#ALLOWED_HOSTS = ["cuforumv2.herokuapp.com", "localhost"]
+
 
 if development:
     ALLOWED_HOSTS = ['localhost']
 else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
-#ALLOWED_HOSTS = ["cuforumv2.herokuapp.com", "localhost"]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
