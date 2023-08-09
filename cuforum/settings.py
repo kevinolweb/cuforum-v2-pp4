@@ -22,7 +22,7 @@ DEBUG = development
 if development:
     ALLOWED_HOSTS = ['localhost']
 else:
-    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+    ALLOWED_HOSTS = ['cuforumv2.herokuapp.com']
 #ALLOWED_HOSTS = ["cuforumv2.herokuapp.com", "localhost"]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
