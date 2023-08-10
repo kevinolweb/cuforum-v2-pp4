@@ -17,6 +17,7 @@ def index(request):
 @login_required(login_url='/')
 def dashboard_view(request,page=1):
     topic_activity = Topic.objects.all()
+    topic_count = Topic.objects.all().count()
     categories_preview = TopicCategory.objects.all()
     
     page = request.GET.get('page')
@@ -38,6 +39,7 @@ def dashboard_view(request,page=1):
         'categories_preview': categories_preview,
         'paginator':paginator,
         'pages':pages,
+        'topic_count':topic_count,
     }
     return render(request, 'dashboard.html', context)
 

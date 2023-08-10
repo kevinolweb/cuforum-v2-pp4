@@ -23,7 +23,9 @@
                 <small class="mb-0"><i>Published: {{i.created_on}}</i></small>
                 <h4><a href="{% url 'topic_item' i.slug %}">{{i.title }}</a></h4>
                 <small class="mb-0"><strong>{{i.creator}}</strong></small>
-                </div>
+            </div>
             {% endfor %}
+        </div>
     </div>
+</div>
 {% endblock %}

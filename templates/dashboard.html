@@ -1,7 +1,5 @@
 {% extends 'base.html' %} 
 {% block content %}
-
-<main class="container">
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
@@ -15,28 +13,30 @@
         </div>
         <div style="margin-top:50px;" class="col-sm-6">
             <h2 class="headline">Topics being discussed</h2>
+            <small>{{topic_count}} topics in total</small>
         {% for topic in topic_activity %} 
             <div class="my-3 p-3 bg-body rounded shadow-sm">
             <small class="mb-0"><i>Published: {{topic.created_on}}</i> by <strong>{{topic.creator}}</strong></small>
             <h4 class="topic-text"><a href="{% url 'topic_item' topic.slug %}">{{topic.title }}</a></h4>
-            <a href="{% url 'category-view' topic.category.id %}"><small id="min-cat" class="mb-0"><strong>{{topic.category}}</strong></small></a>
+            <a href="{% url 'category-view' topic.category.id %}"><small class="min-cat"><strong>{{topic.category}}</strong></small></a>
             </div>
         {% empty %}
         <p>No topics being discussed right now.</p>
         {% endfor %} 
-        <div class="section paginator--wrapper">
+        {% if topic_count %}
+        <div class="paginator-wrapper">
             {% for page in pages %}
                 <a class="btn-paginator" href="?page={{page}}">{{page}}</a>
             {% endfor %}
         </div>
+        {% endif %}
         </div>
         <div style="margin-top:50px;" class="col-sm-3">
             <h2>Trending Topics</h2>
             <div class="my-3 p-3 bg-body rounded shadow-sm">
-                <p>Section Launching 2024!</a><hr>
+                <p>Section Launching 2024!<hr>
             </div> 
-            </div>
         </div>
     </div>
-</main>
+</div>
 {% endblock %}

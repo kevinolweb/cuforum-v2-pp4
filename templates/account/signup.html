@@ -5,12 +5,11 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-{% if user.is_superuser %}
 <div class="container">
     <div class="row">
+        {% if user.is_superuser %}
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign Up" %}</h3>
-
             <p>{% blocktrans %}Welcome to the Cu Forum. Already have an account? Then please <a
                     class="link" href="{{ login_url }}">sign in</a>{% endblocktrans %}</p>
         </div>
@@ -23,20 +22,19 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-
                 <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
 
             </form>
+        {% endif %}
         </div>
     </div>
-</div>
-{% else %}
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign Up" %}</h3>
             <p>Sorry only admins can register new users. Please contact us to get registered.</p>
-
-{% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

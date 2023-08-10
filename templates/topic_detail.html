@@ -5,35 +5,42 @@
 <div class="container">
     <div class="row">
         <div style="margin-top:30px;margin-bottom:50px;" class="col-sm-9">
-            <small id="min-cat"><strong>{{item.category }}</strong></small>
+            <small class="min-cat"><strong>{{item.category }}</strong></small>
             <h2>{{item.title }}</h2> 
-            {% if item.summary %} 
-            {{item.summary|safe}}
-            {% endif %}
+            <section>
+                <div class="summary-section">
+                {% if item.summary %} 
+                <h6 class="min-cat">Topic summary</h6><br>
+                {{item.summary|safe}}
+                {% endif %}
+                </div>
+            </section>
             {% if request.user == item.creator %}
-            <a style="padding:5px;margin-bottom:10px" class="btn btn-primary btn-sm" href="{% url 'update-topic' item.slug %}">Edit</a><br/>
-            <a style="padding:5px;" class="btn btn-danger btn-sm"href="{% url 'delete-topic' item.slug %}">Delete</a>
+            <br><a style="padding:5px;margin-bottom:10px" class="btn btn-primary btn-sm" href="{% url 'update-topic' item.slug %}">Edit</a><br>
+            <a style="padding:5px;" class="btn btn-danger btn-sm" href="{% url 'delete-topic' item.slug %}">Delete</a>
             {% endif %}
-            <section id="comment-container">
-            <strong>Leave a comment</strong>
+            <section class="comment-container">
+            <h4>Leave a comment</h4>
             <form method="POST">
                 {% csrf_token %}
                 {{new_comment | crispy}}
                 <button type="submit" class="btn btn-info">Comment</button>
             </form>
             </section>
-            <section id="comment-container" style="margin-top:50px;">
+            <section style="margin-top:50px;">
+                <div class="comment-container">
                 <h6>Comments</h6><hr>
                 {% if not item.comments.all %}
                 <p>No comments</p>
                 {% else %}
                     {% for message in item.comments.all %}
-                        <small><i>{{message.commenter}} wrote: <i/></small>
+                        <i><small>{{message.commenter}} wrote: </small></i>
                         <p>{{message.body}}</p>
-                        <small><i> at {{message.created}}</i><br/></i></small><br/>
+                        <i><small>at {{message.created}}</small></i><br>
                         <hr>
                     {% endfor %}
                 {% endif %}
+                </div>
             </section>
         </div>
         <div class="col-sm-3">
