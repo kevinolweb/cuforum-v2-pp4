@@ -4,47 +4,49 @@
 {% if user.is_authenticated %}
 <div class="container">
     <div class="row">
-        <div style="margin-top:30px;" class="col-sm-9">
-            <strong ><small>{{item.category }}</small></strong>
-            <div><h2>{{item.title }}</h2></div> 
+        <div style="margin-top:30px;margin-bottom:50px;" class="col-sm-9">
+            <small id="min-cat"><strong>{{item.category }}</strong></small>
+            <h2>{{item.title }}</h2> 
             {% if item.summary %} 
             {{item.summary|safe}}
             {% endif %}
             {% if request.user == item.creator %}
-            <div>
-            <div style="margin:30px;">
-            <a style="padding:20px;" class="btn btn-primary" href="{% url 'update-topic' item.slug %}">Edit</a>
-            <a style="padding:20px;" class="btn btn-danger"href="{% url 'delete-topic' item.slug %}">Delete</a>
-            </div>
-            </div>
+            <a style="padding:5px;margin-bottom:10px" class="btn btn-primary btn-sm" href="{% url 'update-topic' item.slug %}">Edit</a><br/>
+            <a style="padding:5px;" class="btn btn-danger btn-sm"href="{% url 'delete-topic' item.slug %}">Delete</a>
             {% endif %}
-            <h3>Comments</h3><hr>
+            <section id="comment-container">
             <strong>Leave a comment</strong>
             <form method="POST">
                 {% csrf_token %}
                 {{new_comment | crispy}}
                 <button type="submit" class="btn btn-info">Comment</button>
             </form>
-            {% if not item.comments.all %}
-            <p>No comments</p>
-            {% else %}
-                {% for message in item.comments.all %}
-                <div>
-                <i>{{message.commenter}}</i><br/>
-                {{message.body}}
-                </div><hr>
-                {% endfor %}
-            {% endif %}
+            </section>
+            <section id="comment-container" style="margin-top:50px;">
+                <h6>Comments</h6><hr>
+                {% if not item.comments.all %}
+                <p>No comments</p>
+                {% else %}
+                    {% for message in item.comments.all %}
+                        <small><i>{{message.commenter}} wrote: <i/></small>
+                        <p>{{message.body}}</p>
+                        <small><i> at {{message.created}}</i><br/></i></small><br/>
+                        <hr>
+                    {% endfor %}
+                {% endif %}
+            </section>
         </div>
         <div class="col-sm-3">
             <h2>Browse Categories</h2>
             {% for category in categories_preview %} 
-                <div class="categorycont rounded shadow-sm">
-                    <a id="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a></div><hr>
+            <section class="categorycont rounded shadow-sm">
+                <a id="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a>
+            </section><hr>
             {% empty %}
             <p>No categories listed.</p>
             {% endfor %} 
-            </div>
+        </div>
     </div>
+</div>
 {% endif %}
 {% endblock %}

@@ -11,6 +11,17 @@ h4{
     font-size:1.2em;
     margin:10px 0px;
 }
+h4 a {
+    color:#4F5C63;
+}
+#min-cat{
+    color:#6f42c1;
+    font-weight:400;
+}
+
+a:link{
+    text-decoration:none;
+}
 
 .categorycont{
     background-color:#6f42c1;
@@ -21,11 +32,39 @@ h4{
 }
 .categorycont a {
     color:white;
-    text-decoration: none;;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 h2{
     font-size:1.3em;
     color:#4F5C63;
     margin:15px 30px;
+}
+
+.headline{
+    color:#0d6efd
+}
+.btn-paginator{
+    background-color:#6f42c1;
+    padding:5px 8px;
+    border-radius: 10px;
+    color:white;
+    text-decoration: none;
+}
+.btn-paginator:hover{
+    background-color:white;
+    padding:5px 8px;
+    border-radius: 10px;
+    color:#6f42c1;
+}
+#comment-container{
+    margin-top:50px;
+    background-color: #f6fcff;
+    border-radius:20px;
+    padding:20px;
+}
+textarea{
+    height:100px;
 }

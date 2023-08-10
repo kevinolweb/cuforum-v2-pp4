@@ -9,24 +9,34 @@
         {% for category in categories_preview %} 
             <div class="categorycont rounded shadow-sm">
                 <a id="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a></div><hr>
-        {% if empty %}
+        {% empty %}
         <p>No categories listed.</p>
-        {% endif %}
         {% endfor %} 
         </div>
-        <div class="col-sm-6">
-            <h2>Topics being discussed</h2>
+        <div style="margin-top:50px;" class="col-sm-6">
+            <h2 class="headline">Topics being discussed</h2>
         {% for topic in topic_activity %} 
             <div class="my-3 p-3 bg-body rounded shadow-sm">
             <small class="mb-0"><i>Published: {{topic.created_on}}</i> by <strong>{{topic.creator}}</strong></small>
-            <h4><a href="{% url 'topic_item' topic.slug %}">{{topic.title }}</a></h4>
-            <small class="mb-0"><strong>{{topic.category}}</strong></small>
+            <h4 class="topic-text"><a href="{% url 'topic_item' topic.slug %}">{{topic.title }}</a></h4>
+            <a href="{% url 'category-view' topic.category.id %}"><small id="min-cat" class="mb-0"><strong>{{topic.category}}</strong></small></a>
             </div>
-        {% if empty %}
+        {% empty %}
         <p>No topics being discussed right now.</p>
-        {% endif %}
         {% endfor %} 
+        <div class="section paginator--wrapper">
+            {% for page in pages %}
+                <a class="btn-paginator" href="?page={{page}}">{{page}}</a>
+            {% endfor %}
         </div>
-        </div></div>
+        </div>
+        <div style="margin-top:50px;" class="col-sm-3">
+            <h2>Trending Topics</h2>
+            <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <p>Section Launching 2024!</a><hr>
+            </div> 
+            </div>
+        </div>
+    </div>
 </main>
 {% endblock %}

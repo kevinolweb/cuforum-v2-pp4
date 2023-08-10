@@ -3,6 +3,7 @@ from .models import *
 from .forms import TopicForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def index(request):
@@ -14,12 +15,29 @@ def index(request):
 
 
 @login_required(login_url='/')
-def dashboard_view(request):
+def dashboard_view(request,page=1):
     topic_activity = Topic.objects.all()
     categories_preview = TopicCategory.objects.all()
+    
+    page = request.GET.get('page')
+    paginator = Paginator(topic_activity, 3)
+
+    try:
+        topic_activity = paginator.page(page)
+    except PageNotAnInteger:
+        page = 1
+        topic_activity = paginator.page(page)
+    except EmptyPage:
+        page = paginator.num_pages
+        topic_activity = paginator.page(page)
+
+    pages = list(range(1, (paginator.num_pages + 1)))
+
     context = {
         'topic_activity': topic_activity,
         'categories_preview': categories_preview,
+        'paginator':paginator,
+        'pages':pages,
     }
     return render(request, 'dashboard.html', context)
 
