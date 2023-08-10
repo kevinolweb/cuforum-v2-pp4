@@ -3,7 +3,6 @@ import dj_database_url
 from django.contrib.messages import constants as messages
 #development = os.environ.get('DEVELOPMENT', False)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if os.path.isfile("env.py"):
     import env
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -17,9 +16,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'g*2m-tli@m8v#$fvc%8lo86%5ooh6y&#45w=3*imshmhf*_b%*')
 
-DEBUG = 'DEVELOPMENT' in os.environ
+#DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 #ALLOWED_HOSTS = ['cuforumv2.herokuapp.com', 'localhost']
-ALLOWED_HOSTS = ['8000-kevinolweb-cuforumv2pp4-67gl7mibjjm.ws-eu102.gitpod.io', 'localhost']
+ALLOWED_HOSTS = ['8000-kevinolweb-cuforumv2pp4-jo1kfnsc97z.ws-eu102.gitpod.io', 'localhost']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -92,8 +92,6 @@ WSGI_APPLICATION = 'cuforum.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -138,10 +136,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
@@ -151,6 +145,4 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
