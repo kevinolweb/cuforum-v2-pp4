@@ -15,11 +15,10 @@ def index(request):
 
 
 @login_required(login_url='/')
-def dashboard_view(request,page=1):
+def dashboard_view(request, page=1):
     topic_activity = Topic.objects.all()
     topic_count = Topic.objects.all().count()
     categories_preview = TopicCategory.objects.all()
-    
     page = request.GET.get('page')
     paginator = Paginator(topic_activity, 3)
 
@@ -37,8 +36,8 @@ def dashboard_view(request,page=1):
     context = {
         'topic_activity': topic_activity,
         'categories_preview': categories_preview,
-        'paginator':paginator,
-        'pages':pages,
+        'paginator': paginator,
+        'pages': pages,
         'topic_count':topic_count,
     }
     return render(request, 'dashboard.html', context)
@@ -98,8 +97,7 @@ def createTopic(request):
                 'Your topic was successfully created!')
             return redirect('dashboard')
         else:
-            messages.error(request, 'This topic could not be created. This slug may already be in use please create a new one or create a ticket if you have further issues.')
-
+            messages.error(request, 'Oops. This topic could not be created. The title or slug may already be in use.')
     new_topic_form = TopicForm()
     context = {
         'new_topic_form': new_topic_form,
