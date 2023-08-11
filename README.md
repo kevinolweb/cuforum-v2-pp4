@@ -89,6 +89,7 @@ Login Page
 ![Home Preview](/additional/Login.png)
 
 Register Page
+
 ![Home Preview](/additional/Register.png)
 
 My Profile
@@ -123,15 +124,18 @@ A series of automated tests were run on the front facing side of the website to 
 
 
 ##### Homepage 
-An automated test was run on the homepage to ensure it is loading for visitors with a status 200
-![Views Test 1](/additional/views-test.png)
+An automated test was run on the homepage to ensure it is loading for visitors with a status 200.
+
+![Views Test 1](/additional/views-test-1.png)
 
 ##### Sign in Page
 An automated test was run on the sign in page to ensure it loads for all visitors and users.
+
 ![Views Test 2](/additional/views-test-2.png)
 
 #### Dashboard Page (non-logged in users)
 An automated test was run to ensure the dashboard page redirects and does not load for non logged in users. As the view utilises the  login_required decorated similar to other authenticated views, I felt it was important to test this functionality does not display a request 200 and load the dashboard view which is for logged in users only.
+
 ![Views Test 3](/additional/views-test-3.png)
 
 
