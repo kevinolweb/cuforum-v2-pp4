@@ -75,25 +75,25 @@ Before begining the project I used Excel to help me visualise the database layou
 I used Balsamiq to help me organise my thoughts on what I would develop and how the end outcome would look. I find the simplicity of the tool quite nifty for bring the project down to its basic component parts and prevent you becoming excessively bogged down on colours etc.
 
 Homepage Variants
-![Home Preview](/additional/Homepage B.png)
-![Home Preview](/additional/Homepage.png)
+![Home Preview 1](/additional/Homepage%20B.png)
+![Home Preview 2](/additional/Homepage.png)
 
 Discussion Page
-![Home Preview](/additional/Discussion Page.png)
+![Home Preview Logged In](/additional/Discussion%20Page.png)
 
 Create a Topic
-![Home Preview](/additional/Create a Dicussion.png)
+![Create Topic](/additional/Create%20a%20Dicussion.png)
 
 Login Page
-![Home Preview](/additional/Login Homepage.png)
+![Login Preview](/additional/Login%20Homepage.png)
 ![Home Preview](/additional/Login.png)
 
 Register Page
 
-![Home Preview](/additional/Register.png)
+![Register Page](/additional/Register.png)
 
 My Profile
-![Home Preview](/additional/My profile.png)
+![Profile Preview](/additional/My%20profile.png)
 
 ## The Surface Plane
 
