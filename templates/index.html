@@ -12,16 +12,15 @@
       </div>
     </div>
   </section>
-
   <div class="album py-5 bg-light">
     <div class="container"> 
         <div class="row py-5"><h2 class="m-0 text-center text-black">Supported by over 300 Credit Unions</h2></div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for cu in credit_unions %} 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src="{{cu.logo.url}}" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder:" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/>
-            <div class="card-body">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% for cu in credit_unions %} 
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="{{cu.logo.url}}" width="100" height="225" alt="credit union members"/>
+              <div class="card-body">
               <p class="card-text">{{cu.name}}</p>
             </div>
           </div>
@@ -30,7 +29,6 @@
       </div>
     </div>
   </div>
-
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 {% endblock content %}
 
