@@ -5,15 +5,15 @@
 <div class="container">
     <div class="row">
         <div style="margin-top:30px;margin-bottom:50px;" class="col-sm-9">
-            <small class="min-cat"><strong>{{item.category }}</strong></small>
-            <h2>{{item.title }}</h2> 
             <section>
+                <small class="min-cat"><strong>{{item.category }}</strong></small>
+                <h2>{{item.title }}</h2> 
                 {% if item.summary %} 
                 <div class="summary-section">
                 <h6 class="min-cat">Topic summary</h6><br>
                 {{item.summary|safe}}
-                {% endif %}
                 </div>
+                {% endif %}
             </section>
             {% if request.user == item.creator %}
             <br><a style="padding:5px;margin-bottom:10px" class="btn btn-primary btn-sm" href="{% url 'update-topic' item.slug %}">Edit</a><br>
@@ -47,7 +47,7 @@
             <h2>Browse Categories</h2>
             {% for category in categories_preview %} 
             <section class="categorycont rounded shadow-sm">
-                <a id="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a>
+                <a class="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a>
             </section><hr>
             {% empty %}
             <p>No categories listed.</p>
