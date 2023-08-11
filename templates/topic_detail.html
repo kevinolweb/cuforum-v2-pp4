@@ -8,8 +8,8 @@
             <small class="min-cat"><strong>{{item.category }}</strong></small>
             <h2>{{item.title }}</h2> 
             <section>
-                <div class="summary-section">
                 {% if item.summary %} 
+                <div class="summary-section">
                 <h6 class="min-cat">Topic summary</h6><br>
                 {{item.summary|safe}}
                 {% endif %}
