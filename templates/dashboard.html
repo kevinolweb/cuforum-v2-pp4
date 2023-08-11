@@ -6,7 +6,7 @@
         <h2>Browse Categories</h2>
         {% for category in categories_preview %} 
             <div class="categorycont rounded shadow-sm">
-                <a id="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a></div><hr>
+                <a class="cat-a" href="{% url 'category-view' category.id %}">{{category.name }}</a></div><hr>
         {% empty %}
         <p>No categories listed.</p>
         {% endfor %} 

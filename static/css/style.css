@@ -1,6 +1,9 @@
 body{
     background-color:#b3d2e233;
 }
+img{
+    width:100%;
+}
 hr{
     color:#8FBCD4;
 }
