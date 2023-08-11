@@ -38,7 +38,7 @@ def dashboard_view(request, page=1):
         'categories_preview': categories_preview,
         'paginator': paginator,
         'pages': pages,
-        'topic_count':topic_count,
+        'topic_count': topic_count,
     }
     return render(request, 'dashboard.html', context)
 

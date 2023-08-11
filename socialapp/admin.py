@@ -17,7 +17,7 @@ class TopicAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('summary',)
     actions = ['make_trending']
-    
+
     def make_trending(self, request, queryset):
         queryset.update(topic_trending=True)
 
