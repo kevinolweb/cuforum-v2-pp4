@@ -1,12 +1,12 @@
 import os
 import dj_database_url 
 from django.contrib.messages import constants as messages
-#development = os.environ.get('DEVELOPMENT', False)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if os.path.isfile("env.py"):
     import env
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
+
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
@@ -16,10 +16,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-#DEBUG = 'DEVELOPMENT' in os.environ
+
 DEBUG = False
 ALLOWED_HOSTS = ['cuforumv2.herokuapp.com', 'localhost']
-#ALLOWED_HOSTS = ['8000-kevinolweb-cuforumv2pp4-jo1kfnsc97z.ws-eu102.gitpod.io', 'localhost']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
