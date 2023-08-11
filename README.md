@@ -138,24 +138,67 @@ An automated test was run to ensure the dashboard page redirects and does not lo
 
 ![Views Test 3](/additional/views-test-3.png)
 
-
 ### Manual Testing
-#### Unauthenticated users
-1. Non logged in users cannot create a topic
-2. Non logged in users cannot access the dashboard
-3. Non logged in users cannot delete a topic
-4. Non logged in users cannot contribute to the site other than through signing up as a member
-5. Non logged in users do not see links to the dashboard or to “create a topic” on the homepage page navigation
+Manual tests were completed on the application to ensure everything is working correctly.
+
+#### Non Authenitcated Users
+
+| **Test** | **Pass/Fail** |
+|------------|----------------------|
+| Non logged in users cannot create a topic | Pass |
+| Non logged in users cannot access the dashboard | Pass |
+| Non logged in users cannot delete a topic | Pass |
+| Non logged in users cannot contribute to the site other than through signing up as a member | Pass |
+| Non logged in users do not see links to the dashboard or to “create a topic” on the homepage page navigation | Pass |
+| Non logged in users see "Sign in" and "Register links on homepage | Pass |
+| Non logged in users can register for the site and are redirected to "Dashboard" views once successfully signed in | Pass |
+| Non logged in users can only see login or register in the main navigation on mobile and desktop | Pass |
+
 
 #### Authenticated users
-1. Users who sign up cannot access the admin panel - they remain staff so can access the topic dashboard etc once the register for the site but not admin area
-2. Users who are signed in cannot delete topics that another user created
-3. Users who are signed in cannot edit another persons topic
-4. Users can delete their own topic
-5. Users can edit their own topic
-6. Users are able to successfully sign in and be redirected to the dashboard
-7. Users are able to logout and are taken to the logout page and back to the homepage once they have confirmed they are signing out
+| **Test** | **Pass/Fail** |
+|------------|----------------------|
+| Users who sign up cannot access the admin panel - they remain staff so can access the topic dashboard etc once the register for the site but not admin area | Pass |
+| Users who are signed in cannot delete topics that another user created | Pass |
+| Users who are signed in cannot edit another persons topic | Pass |
+| Users can delete their own topic | Pass |
+| Users can edit their own topic | Pass |
+| Non logged in users see "Start a discussion" instead of "Sign in" and do not see "Register" links on index page and other pages. | Pass |
+| Users are able to successfully sign in and be redirected to the dashboard | Pass |
+| On Dashboard page, if there are no topics then “No topics” message displayed | Pass |
+| On Dashboard page, no category message shown if there are no categories | Pass |
+| On Dashboard page, shows if more than 3 topics are on the page as per paginator | Pass |
+| On Dashboard page, pagination works for each link when more than 3 topics created | Pass |
+| On Dashboard page, click to browse categories works on all devices | Pass |
+| On Dashboard page, all links on the page work specifically the link to topic and category within topic box | Pass |
 
+### HTML Testing
+
+#### W3C Validator
+All html templates were put through the W3C Validator and achieved pass results. See table documenting test process below:
+
+| **Test Page** | **Pass/Fail** |
+|------------|----------------------|
+| Index | Pass |
+| Login | Pass |
+| Logout | Pass |
+| Register | Pass |
+| Dashboard | Pass |
+| Create a topic | Pass |
+| Update a Topic | Pass |
+| Delete a Topic | Pass |
+| Individual category | Pass |
+| Topic Detail  | Pass |
+
+### CSS Testing
+The CSS stylesheet was put through W3C validation and passed with no errors.
+
+### Python Testing
+All of the created python code was put through the code institute python linter [https://pep8ci.herokuapp.com/] and passed. This included files like the applications views, models, urls, tests, and other custom files.
+
+### Website Speed & Performance Test
+The website was tested using Google Lighthouse for responsiveness, accessibility, and site load speed scoring well on both mobile and desktop. See score below:
+![lighthouse Test](/additional/speed.png)
 
 ## Technologies Used
 * HTML
@@ -168,6 +211,20 @@ An automated test was run to ensure the dashboard page redirects and does not lo
 * The code was deployed through Heroku server and can be viewed here[https://cuforumv2.herokuapp.com/].
 * The database used is Elephant SQL
 * All media files are stored through Cloudinary
+
+### Deployment Process
+The web application was deployed to Heroku. The steps involved included:
+1. Go to Heroku.
+2. Click "new" from the dashboard and select "create new app".
+3. Choose a name for the app then click "create app"
+4. Move to "settings"
+5. Next go to the  "config vars" and enter: SECRET_KEY: The Secret Key for your project, DATABASE_URL: The URL from your ElephantSQL dashboard, CLOUNDINARY_URL: The URL from your Cloudinary dashboard, PORT: 8000
+6. Navigate to "Deploy" and select Github. Find your repo and connect. Enable automatic deploys if you wish.
+7. Choose branch to deploy
+8. The build log will load and will show you if there are any issues with deployment and when it is complete
+9. You can now visit your app via the heroku url
+
+
 
 ## Credits 
 * The Code Institute projects were used to assist my learning of Django and building applications requiring CRUD functionality.
