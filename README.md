@@ -35,6 +35,7 @@ As a registered user my goals are to:
 
 ### Kanban
 I used the Kanban feature baord on Github to help plan my project successfully. I divided the project into a series of steps that needed to be completed. Once I started a task I marked it as in progress and done when finished. This helped me to clearly stay on task and not get lost in scope creep.
+
 ![Kanban Preview](/additional/main-image-4-kanban.jpg)
 
 The Kanban board can be viewed here.[https://github.com/users/kevinolweb/projects/1/views/1]
@@ -76,6 +77,7 @@ I used Balsamiq to help me organise my thoughts on what I would develop and how 
 
 Homepage Variants
 ![Home Preview 1](/additional/Homepage%20B.png)
+
 ![Home Preview 2](/additional/Homepage.png)
 
 Discussion Page
@@ -86,6 +88,7 @@ Create a Topic
 
 Login Page
 ![Login Preview](/additional/Login%20Homepage.png)
+
 ![Home Preview](/additional/Login.png)
 
 Register Page
@@ -99,6 +102,7 @@ My Profile
 
 ### Design
 I went with a soft blue for the colour scheme to give the UX a user friendly look. I complimented it with a bright purple for the categories section so this finter woption would stand out and bring vibracy to the page.
+
 ![Home Preview](/additional/main-image-color.jpg)
 
 
@@ -110,13 +114,16 @@ Django Unit tests were used on aspects of the application in order to test funct
 
 #### Models
 Automated test on Topic model to ensure topic trending is set to false.
+
 ![Models Test 1](/additional/models.png)
 
 Automated test to ensure the topic title conforms to within 250 characters.
+
 ![Models Test 2](/additional/models2.png)
 
 #### Forms
 Two automated tests were created to test to ensure that a topic cannot be created with a title and to ensure a user cannot set another user as a creator of a topic.
+
 ![Forms Test](/additional/forms-test.png)
 
 #### Views
@@ -198,6 +205,7 @@ All of the created python code was put through the code institute python linter 
 
 ### Website Speed & Performance Test
 The website was tested using Google Lighthouse for responsiveness, accessibility, and site load speed scoring well on both mobile and desktop. See score below:
+
 ![lighthouse Test](/additional/speed.png)
 
 ## Technologies Used
@@ -208,7 +216,7 @@ The website was tested using Google Lighthouse for responsiveness, accessibility
 
 
 ## Deployment
-* The code was deployed through Heroku server and can be viewed here[https://cuforumv2.herokuapp.com/].
+* The code was deployed through Heroku server and can be viewed here [https://cuforumv2.herokuapp.com/].
 * The database used is Elephant SQL
 * All media files are stored through Cloudinary
 
