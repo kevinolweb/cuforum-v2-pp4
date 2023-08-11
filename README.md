@@ -180,7 +180,7 @@ Manual tests were completed on the application to ensure everything is working c
 | Notifications, an alert is displayed when the user logs in | Pass |
 | Notifications, an alert is displayed when a user successfully posts a comment or topic | Pass |
 | Notifications, an alert is displayed when the user logs out | Pass |
-| Notifications, an alert is displayed when the user notifying the user when a topic wasn't created due to an error and suppliesuser  directions. | Pass |
+| Notifications, an alert is displayed when the user notifying the user when a topic wasn't created due to an error and supplies the user with directions. | Pass |
 
 
 ### HTML Testing
