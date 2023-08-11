@@ -7,7 +7,6 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        {% if user.is_superuser %}
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign Up" %}</h3>
             <p>{% blocktrans %}Welcome to the Cu Forum. Already have an account? Then please <a
@@ -25,7 +24,6 @@
                 <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
 
             </form>
-        {% endif %}
         </div>
     </div>
 
