@@ -177,7 +177,11 @@ Manual tests were completed on the application to ensure everything is working c
 | On Dashboard page, shows if more than 3 topics are on the page as per paginator | Pass |
 | On Dashboard page, pagination works for each link when more than 3 topics created | Pass |
 | On Dashboard page, click to browse categories works on all devices | Pass |
-| On Dashboard page, all links on the page work specifically the link to topic and category within topic box | Pass |
+| Notifications, an alert is displayed when the user logs in | Pass |
+| Notifications, an alert is displayed when a user successfully posts a comment or topic | Pass |
+| Notifications, an alert is displayed when the user logs out | Pass |
+| Notifications, an alert is displayed when the user notifying the user when a topic wasn't created due to an error and suppliesuser  directions. | Pass |
+
 
 ### HTML Testing
 
